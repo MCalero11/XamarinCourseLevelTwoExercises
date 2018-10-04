@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NorthwindMVVM.Views.ListProductsPage"
+             xmlns:ViewModel="clr-namespace:NorthwindMVVM.ViewModels"
+             Title="Lista">
+    <ContentPage.BindingContext>
+        <ViewModel:ListProductsViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Padding="0,10"
+                        
+                        Grid.Row="0">
+                <Label Text="Lista de productos" 
+                   HorizontalOptions="Center"/>
+                <Button Text="Nuevo"
+                        Command="{Binding New}"/>
+                <ListView Grid.Row="1"
+                          ItemsSource="{Binding Products}"
+                          HeightRequest="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Id, StringFormat='ID: {0}'}"/>
+                                        <Label Text="{Binding Nombre, StringFormat='Nombre: {0}'}"/>
+                                        <Label Text="{Binding Precio, StringFormat='Precio: {0}'}"/>
+                                        <Label Text="{Binding Existecia, StringFormat='Existencias: {0}'}"/>
+                                        
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

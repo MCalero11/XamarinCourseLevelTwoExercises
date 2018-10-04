@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="ConferenceMVVM.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" />
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Text="Usuario" 
+                       VerticalOptions="Center"
+                       Grid.Column="0"/>
+                <Entry Placeholder="User" 
+                       Grid.Column="1"
+                       Text="{Binding user.Name}"/>
+
+                <Label Text="Contraseña" 
+                       VerticalOptions="Center"
+                       Grid.Column="0"
+                       Grid.Row="1"/>
+                <Entry Placeholder="Password" 
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       Text="{Binding user.Password}"/>
+            </Grid>
+            <Button Text="Ingresar"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="40,0"
+                    BorderRadius="20"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    BackgroundColor="LightBlue"
+                    Command="{Binding LoginCommand}"/>
+            <Label Text="Olvidé mi contraseña"
+                   HorizontalOptions="Center"
+                   TextColor="Gray"
+                   Margin="0,15,0,0"
+                   />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

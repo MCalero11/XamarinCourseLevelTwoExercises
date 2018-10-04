@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NorthwindMVVM.Views.AddProductPage"
+             xmlns:ViewModel="clr-namespace:NorthwindMVVM.ViewModels"
+             Title="Agregar producto">
+    <ContentPage.BindingContext>
+        <ViewModel:AddProductViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Ingrese un Nombre"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"/>
+                <Entry Placeholder="abc"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding Nombre}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Precio"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"/>
+                <Entry Placeholder="00.00"
+                       HorizontalOptions="FillAndExpand"
+                       Keyboard="Numeric"
+                       Text="{Binding Precio}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Existencia"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"/>
+                <Entry Placeholder="00"
+                       HorizontalOptions="FillAndExpand"
+                       Keyboard="Numeric"
+                       Text="{Binding Existecia}"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Margin="0,20">
+                <Button WidthRequest="120"
+                        HeightRequest="120"
+                        Text="Guardar"
+                        BorderRadius="60"
+                        BackgroundColor="Green"
+                        Command="{Binding Guardar}"/>
+                <Button WidthRequest="120"
+                        HeightRequest="120"
+                        Text="Cancelar"
+                        BorderRadius="60"
+                        BackgroundColor="Red"
+                        Command="{Binding Cancelar}"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

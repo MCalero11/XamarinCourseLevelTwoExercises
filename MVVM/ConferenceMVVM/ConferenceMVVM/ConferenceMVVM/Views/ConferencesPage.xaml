@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             Title="{Binding Title}"
+             x:Class="ConferenceMVVM.Views.ConferencesPage">
+    <ContentPage.Content>
+        <ListView RowHeight="50"
+                  ItemsSource="{Binding Conferences}"
+                  ItemTapped="ListView_ItemTapped"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="0,20">
+                            <Image Source="{Binding Photo}"
+                                   WidthRequest="100"/>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Title}"
+                                       FontSize="Large"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Datetime}"
+                                       FontSize="Medium"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
