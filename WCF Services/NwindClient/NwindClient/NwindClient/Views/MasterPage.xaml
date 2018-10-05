@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="NwindClient.Views.MasterPage"
+                  xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <StackLayout>
+                <ListView SeparatorVisibility="None"
+                          HasUnevenRows="true"
+                          ItemsSource="{Binding MenuItems}"
+                          SelectedItem="{Binding SelectedItem}">
+                    <ListView.Header>
+                        <Grid BackgroundColor="DarkBlue">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="80"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="store.png"
+                           Grid.Column="1"
+                           Grid.Row="1"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="20" HorizontalOptions="FillAndExpand"
+                                     Orientation="Horizontal"
+                                     Spacing="5">
+                                    <Image Source="{Binding Icon}"
+                                   WidthRequest="25"/>
+                                    <Label VerticalOptions="FillAndExpand" 
+                                    VerticalTextAlignment="Center" 
+                                    Text="{Binding Title}" 
+                                    FontSize="Medium"
+                                   TextColor="#324A5E"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Behaviors>
+                        <b:EventToCommandBehavior EventName="ItemTapped"
+                                                  Command="{Binding NavigateCommand}" />
+                    </ListView.Behaviors>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    
+</MasterDetailPage>

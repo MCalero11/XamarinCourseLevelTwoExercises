@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="NwindClient.Views.ListAllProducts">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout IsVisible="True">
+                <Image Source="empty.png"
+                       HeightRequest="50"
+                       VerticalOptions="CenterAndExpand"/>
+                <Label Text="Parece un poco vacío aquí"
+                       FontSize="Large"
+                       VerticalOptions="CenterAndExpand"
+                       TextColor="LightGray"/>
+            </StackLayout>
+            <ListView IsVisible="False">
+                
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+  
+</ContentPage>

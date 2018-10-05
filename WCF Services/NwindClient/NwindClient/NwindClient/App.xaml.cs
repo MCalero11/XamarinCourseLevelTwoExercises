@@ -24,13 +24,16 @@ namespace NwindClient
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("MasterPage/NavigationPage/ListAllProducts");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<MasterPage>();
+            containerRegistry.RegisterForNavigation<ListAllProducts>();
+            containerRegistry.RegisterForNavigation<ListProductByCategory>();
+            containerRegistry.RegisterForNavigation<ProductDetail>();
         }
     }
 }
